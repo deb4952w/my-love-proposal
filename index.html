@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ffb6c1, #ffc3a0);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container {
+    background: rgba(255,255,255,0.9);
+    padding: 35px 22px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 35px #b8326070;
+}
+
+.heart {
+    font-size: 65px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+h1 {
+    color: #e91e63;
+    margin: 20px 0;
+}
+
+p {
+    color: #71344c;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    padding: 13px 27px;
+    border-radius: 30px;
+    font-size: 17px;
+    margin: 20px 5px 0;
+    cursor: pointer;
+}
+
+#yes {
+    background: #e91e63;
+    color: white;
+}
+
+#no {
+    background: #eee;
+    color: #333;
+}
+
+#result {
+    color: #e91e63;
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    animation: float 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Hey Beautiful! 🌹</h1>
+
+    <p>
+        I don't know how to express
+        my feelings perfectly... 🥺
+        <br><br>
+        But one thing I know,
+        you make my world more beautiful.
+        <br><br>
+        So, I have a special question for you...
+    </p>
+
+    <h1>Will You Go On A Date With Me? 💌</h1>
+
+    <button id="yes" onclick="sayYes()">
+        YES ❤️
+    </button>
+
+    <button id="no" onclick="sayNo()">
+        NO 🙈
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function sayYes() {
+    document.getElementById("result").innerHTML =
+    "YAYYYYY! 🥹❤️<br><br>" +
+    "You just made my day! 🌹<br>" +
+    "It's a DATE then! 🥰";
+
+    for(let i=0; i<30; i++) {
+        createHeart();
+    }
+}
+
+function sayNo() {
+    document.getElementById("result").innerHTML =
+    "No pressure, take your time! 🥺❤️";
+}
+
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (20+Math.random()*25) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 700);
+
+</script>
+
+</body>
+</html>
